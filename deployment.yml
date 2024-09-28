@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-website
+  labels:
+    app: basic-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: basic-website
+  template:
+    metadata:
+      labels:
+        app: basic-website
+    spec:
+      containers:
+      - name: basic-website
+        image: chandu15/basic-website:latest
+        ports:
+        - containerPort: 8080
+
